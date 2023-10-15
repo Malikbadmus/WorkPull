@@ -5,41 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Job Seeker Registration</title>
-         <script type="text/javascript">
-             function checkForm() {
-
-// Fetching values from all input fields and storing them in variables.
-var email = document.getElementById("emailerror").innerHTML;
-var pass1 = document.getElementById("passerror").innerHTML;
-var pass2 = document.getElementById("passerror2").innerHTML;
-var name = document.getElementById("nameerror").innerHTML;
-var mobno = document.getElementById("mobnoerror").innerHTML;
-var skills = document.getElementById("skillerror").innerHTML;
-//Check input Fields Should not be blanks.
-var p1=document.getElementById("passnew").value;
-var p2=document.getElementById("passconf").value;
-    if (p1 != p2) {
-        document.getElementById("passerror2").innerHTML="Password Donot Match" ;
-    }
-    else
-    {
-        document.getElementById("passerror2").innerHTML="" ;
-
-    }
-
-if(email == '' && pass1 == '' && pass2 == '' &&  name == "" && mobno == '' && skills =='') {
-    //document.getElementById("reguser").submit();
-                     return true;
-}
-else {
-alert("Fill in with correct information");
-                     return false;
-
-}
-        }
-
- 
- </script>
+       
     </head>
     <body>
         
