@@ -19,7 +19,7 @@ https://github.com/Malikbadmus/WorkPull.git
 
 2. Install the necessary dependencies:
 
-3. Configure the database connection in the `config.js` file.
+3. Configure the database connection in the `config.php` file.
 4. Start the development server:
 
 5. Access the application at: `http://localhost:`
