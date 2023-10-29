@@ -13,7 +13,8 @@ if (isset($_POST['submit']))
     {
         upload_resume();
     }
-    elseif ($type=="logo") {
+    elseif ($type=="logo")
+	{
          upload_logo();
     }
 }
@@ -81,7 +82,7 @@ function upload_image(){
 /* function upload image ends here */
 
 function upload_logo()
-{
+{	
     $filename = $_FILES["file"]["name"];
     $file_basename = substr($filename, 0, strripos($filename, '.')); // get file extention
     $file_ext = substr($filename, strripos($filename, '.')); // get file name
@@ -108,13 +109,14 @@ function upload_logo()
 
 
                 move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/logo/" . $newfilename);
-                mysqli_select_db($GLOBALS['db1'], "jobportal");
-                $cmd = mysqli_query($GLOBALS['db1'], "update employer set logo = '$newfilename' WHERE eid=$_SESSION[eid]");
+                mysqli_select_db(db1, "jobportal");
+                $cmd = mysqli_query(db1, "UPDATE employer SET logo = '$newfilename' WHERE emid = {$_SESSION['eid']}");
+
                 if (!$cmd) {
                     echo("Error description: " . mysqli_error($db1));
                 } else {
                     //echo "File uploaded succesfully ; <a href='employer/profile.php'> Go back to profile </a>";
-                    header('location:employer/profile.php?msg=suc-logo');
+                    header('location: employer/profile.php?msg=suc-logo');
                 }
             } else{
                 echo "image size is too large";
@@ -163,7 +165,7 @@ $filename = $_FILES["file"]["name"];
 
             move_uploaded_file($_FILES["file"]["tmp_name"], "uploads/resume/" . $newfilename);
             mysqli_select_db($GLOBALS['db1'],"jobportal");
-            $cmd=mysqli_query($GLOBALS['db1'],"update jobseeker set Resume= '$newfilename' WHERE user_id=$_SESSION[jsid]");
+            $cmd=mysqli_query($GLOBALS['db1'],"update login set resume= '$newfilename' WHERE joid =$_SESSION[jsid]");
             if (!$cmd)
             {
                 echo("Error description: " . mysqli_error($db1));

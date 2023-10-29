@@ -49,7 +49,7 @@
 <nav class="navbar" id="insidenav">
   <div class="container-fluid">
       <div class="navbar-header">
-          <a class="navbar-brand" href="#">Job Portal</a>
+          <a class="navbar-brand" href="#">WorkPull</a>
       </div>
 
     <ul class="nav navbar-nav">
@@ -64,12 +64,12 @@
                 <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <span class="glyphicon glyphicon-user"></span> Register <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="jobseeker/register_user.html">Jobseeker</a></li>
+                        <li><a href="jobseeker/register_user.php">Jobseeker</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="employer/register_emp.html">Employer</a></li>
+                        <li><a href="employer/register_emp.php">Employer</a></li>
                     </ul>
                 </li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -97,7 +97,7 @@
 
 <div class="container-fluid" id="main1"> <!-- jumbotron fluid -->
 <div class="jumbotron text-center" id="searchjum">
-<h1>Job Portal</h1>
+<h1>WorkPull Job Portal</h1>
     <p>Search for Jobs</p>
     <form class="form-inline" id="homesearch">
         <input type="text" class="form-control" size="50" placeholder="Enter your search keyword" name="keyword" id="keyword">
@@ -173,8 +173,8 @@
         <div class="row">
             <div class="col-sm-5">
                 <p>Contact us and we'll get back to you within 24 hours.</p>
-                <p><span class="glyphicon glyphicon-map-marker"></span> Kozhikode, India</p>
-                <p><span class="glyphicon glyphicon-phone"></span> +91 8943 202726</p>
+                <p><span class="glyphicon glyphicon-map-marker"></span> Lagos, Nigeria</p>
+                <p><span class="glyphicon glyphicon-phone"></span> 2348067879076</p>
                 <p><span class="glyphicon glyphicon-envelope"></span> info@jobportal.com</p>
             </div>
 
@@ -206,7 +206,7 @@
 <!-- Add Google Maps -->
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script>
-    var myCenter = new google.maps.LatLng(11.2680519,75.7891479);
+    var myCenter = new google.maps.LatLng(6.5244,3.3792);
 
     function initialize() {
         var mapProp = {

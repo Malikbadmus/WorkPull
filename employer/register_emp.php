@@ -236,22 +236,22 @@ else {
         <label class="control-label col-sm-2"> Where are you currently located? </label>
                   <div class="form-inline"> 
                     <select name="country" class=" form-control countries" id="countryId" style="width:145px;" required>
-                        <option value="">Select Country</option>
+                        <option value="Nigeria">Nigeria</option>
                      </select>
                    
                     <select name="state" class="form-control states" id="stateId" style="width:145px;" required>
-                        <option value="">Select State</option>
+                        <option value="Lagos state">Lagos state</option>
                     </select> 
                     
                      <select name="city" class="form-control cities" id="cityId" style="width:145px;">
-                        <option value="">Select City</option> 
+                        <option value="Lagos">Lagos</option> 
                      </select>
                   </div>
 </div>
     <div class="form-group">
-        <label class="control-label col-sm-2">About Company:</label>
+        <label class="control-label col-sm-2" for="profile">About Company:</label>
         <div class="col-sm-5">
-            <textarea placeholder="Describe your company" class="form-control" rows="5" required onblur="validate('longtext','abouterror',this.value)"></textarea>
+            <textarea placeholder="Describe your company" name= "profile" id = "profile" class="form-control" rows="5" required onblur="validate('longtext','abouterror',this.value)"></textarea>
             <label class="error" id="abouterror"></label>
         </div>
     </div>

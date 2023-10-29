@@ -1,45 +1,23 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sreelal
- * Date: 7-04-2016
- * Time: 7:02 PM
- * Online-Job-Portal - A web application built on PHP HTML & javascript
-Copyright (C) 2016 Sreelal C
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
- */
 include_once('../config.php');
 include_once('notify.php');
 //session_start();
 notify();
-$id = $_SESSION['elogid'];
+$id = $_SESSION['id'];
 //echo $id;
-if(isset($_SESSION['elogid']))
+if(isset($_SESSION['id']))
 {
-$q = "select * from login join employer on login.log_id=employer.log_id WHERE login.log_id = $id";
+$q = "select * from employer WHERE employer.emid = '$id'";
 //echo $q;
 $result = mysqli_query($db1, $q);// or die("Selecting user profile failed");
 $row = mysqli_fetch_array($result);
-//  echo $row['log_id'];
-    $_SESSION['eid']=$row['eid'];
+//  echo $row['id'];
+    $_SESSION['eid']=$row['emid'];
     $_SESSION['name']=$row['ename'];
 }
 else
 {
-header('location:../login.php?msg=please_login');
+header('location:../elogin.php?msg=please_login');
 }
 if(isset($_GET['msg']) &&  $_GET['msg']=="jobposted") {
 

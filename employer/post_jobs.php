@@ -1,26 +1,8 @@
 <?php
-/**
- * Online-Job-Portal - A web application built on PHP HTML & javascript
-Copyright (C) 2016 Sreelal C
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
- */
 include_once('../config.php');
 session_start();
 if(!isset($_SESSION['eid'])){
-    header('location:../login.php?msg=please_login');
+    header('location: ../login.php?msg=please_login');
 }
 ?>
 <!DOCTYPE HTML>
@@ -30,28 +12,27 @@ if(!isset($_SESSION['eid'])){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
         <title> Post Jobs </title>
-         <script>
-             function checkForm() {
-// Fetching values from all input fields and storing them in variables.
-var desig = document.getElementById("deser").innerHTML;
-var vacancy = document.getElementById("vacer").innerHTML;
-var desc = document.getElementById("jober").innerHTML;
-var fnarea = document.getElementById("fner").innerHTML;
-var profile = document.getElementById("proer").innerHTML;
-var pay = document.getElementById("payer").innerHTML;
-//Check input Fields Should not be blanks.
+		<script>
+ function checkForm() {
+  // Fetching values from all input fields and storing them in variables.
+  var desig = document.getElementById("deser").innerHTML;
+  var vacancy = document.getElementById("vacer").innerHTML;
+  var desc = document.getElementById("jober").innerHTML;
+  var fnarea = document.getElementById("fner").innerHTML;
+  var profile = document.getElementById("proer").innerHTML;
+  var pay = document.getElementById("payer").innerHTML;
 
-if(desig == '' && vacancy == '' && desc == '' &&  fnarea =='' && profile=='' && pay=='') {
-   return true;
-
+  // Check input Fields Should not be blanks.
+  if (desig !== '' && vacancy !== '' && desc !== '' && fnarea !== '' && profile !== '' && pay !== '') {
+    return true; // Form is correctly filled out.
+  } else {
+    alert("Fill in with correct information");
+    return false; // Form is incomplete or incorrect.
+  }
 }
-else {
-alert("Fill in with correct information");
-    return false;
 
-}
-        }
- </script>
+
+</script>
     </head>
     <body>
 
@@ -109,22 +90,22 @@ alert("Fill in with correct information");
            
             <div class="form-group">
                 <label for="desig" class="control-label col-sm-2">Job Title/ Designation:</label>
-                 <div class="col-sm-4"> 
-                      <input type="text" class="form-control" name="desig" id="desig" required onblur="validate('text','deser', this.value);">
-                 </div>
-                 <label id="deser" class="error"></label>
+                <div class="col-sm-4"> 
+                      <input type = "text" class="form-control" name="desig" id="deser">
+				</div>
             </div>
+                 
             
              <div class="form-group">
                   <label for="vac_no" class="control-label col-sm-2">Number of vacancies:</label>
-                  <div class="col-sm-2">  <input type="text" name="vacno" class="form-control" id="vac_no"  required onblur="validate('digit','vacer', this.value)" > </div>
-                  <label id="vacer" class="error"></label>
+                  <div class="col-sm-2">  <input type="text" name="vacno" class="form-control" id="vacer" > </div>
+                  
             </div>
             
              <div class="form-group">
                 <label for="job_desc" class="control-label col-sm-2">Job Description:</label>
-                  <div class="col-sm-5">  <textarea class="form-control" rows="5" id="job_desc" name="jobdesc" required onblur="validate('longtext','jober',this.value)"></textarea> </div>
-                <label class="error" id="jober"></label>
+                  <div class="col-sm-5">  <textarea class="form-control" rows="5" id="jober" name="jobdesc"></textarea> </div>
+               
             </div>
             
              <div class="form-inline form-group">
@@ -148,31 +129,31 @@ alert("Fill in with correct information");
                 <label for="pay-div" class="control-label col-sm-2">Basic Pay:</label>
                   <div class="col-sm-4" id="pay-div">
                          <select class="form-control" id="money" name="money"> 
-                           <option value="Rs"> Rs </option>
-                           <option value="USD"> USD </option>
+                           <option value="Naira"> Naira </option>
+                           
                            </select>
-                        <input type="text" class="form-control" id="pay" name="pay" required onblur="validate('digit','payer',this.value)">
+                        <input type="text" class="form-control" id="payer" name="pay">
                    </div>
-                   <label class="error" id="payer"></label>
+                   
             </div>
             
             <div class="form-group">
                 <label for="fnarea" class="control-label col-sm-2">Functional Area:</label>
                  <div class="col-sm-4">  <input type="text" class="form-control" id="fnarea" required name="fnarea"> </div>
-                 <label class="error" id="fner"></label>
+                 
                
             </div>
             <div class="form-group form-inline">
                 <label for="location" class="control-label col-sm-2">Location:</label>
                 <div class="col-sm-6">   
                     <select name="country" class=" form-control countries" id="countryId"  required>
-                         <option value="">Select Country</option>
+                         <option value="Nigeria">Nigeria</option>
                     </select>
                     <select name="state" class="form-control states" id="stateId"  required>
-                        <option value="">Select State</option>
+                        <option value="Lagos State">Lagos state</option>
                     </select> 
                     <select name="city" class="form-control cities" id="cityId"  required>
-                        <option value="">Select City</option> 
+                        <option value="Lagos">Lagos</option> 
                     </select>
             </div> 
             </div>
@@ -295,8 +276,8 @@ alert("Fill in with correct information");
                 </div>
                 <div class="form-group">
                     <label for="profile" class="control-label col-sm-2">Desired Candidate Profile</label>
-                    <div class="col-sm-5"><textarea id="profile" rows="5" name="profile" class="form-control" required onblur="validate('longtext','proer',this.value)"></textarea></div>
-                    <label class="error" id="proer"></label>
+                    <div class="col-sm-5"><textarea id="proer" rows="5" name="profile" class="form-control"></textarea></div>
+                    
                 </div>
                 <div class="page-header" />
                 <p> Are you sure to submit the job! Check for errors before submitting the job</p>

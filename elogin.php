@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,13 +14,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Signin</title>
-    
+      <?php
+      if(isset($_GET['msg']) && ($_GET['msg']=="failed")){
+          ?>
+          <script type='text/javascript'>alert("Login Failed: Invalid Username or Password!");</script>
+          <?php
+      }
+      else if(isset($_GET['msg']) && ($_GET['msg']=="registered"))
+      {
+          ?>
+      <script type='text/javascript'>alert("Successfully registered, Please login now!");</script>
+          <?php
+      }
+      else if(isset($_GET['msg']) && ($_GET['msg']=='please_login'))
+          {
+          
+            header('location: elogin.php'); 
+          
+      }
+      ?>
   </head>
 
 <nav class="navbar" id="insidenav">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="index.html">Job Portal</a>
+      <a class="navbar-brand" href="index.php">Job Portal</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Login</a></li>
@@ -36,7 +57,7 @@
 </nav>
   <body>
     <div class="container col-sm-5 pull-right">
-        <form class="form-signin" action="process_login.php" method="post">
+        <form class="form-signin" action="process_elogin.php" method="post">
             <h2 class="form-signin-heading">Please sign in</h2>
              <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">

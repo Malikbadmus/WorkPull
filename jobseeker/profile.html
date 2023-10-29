@@ -1,22 +1,4 @@
-<?php
 
-include_once('../config.php');
-session_start();
-$id = $_SESSION['id'];
-//echo $id;
-if(isset($_SESSION['id'])&& ($_SESSION['type']="jobseeker"))
-{
-	$q = "SELECT * FROM login WHERE login.joid = '$id'";
-	$result = mysqli_query($db1, $q) or die("Selecting user profile failed: " . mysqli_error($db1));
-    $row = mysqli_fetch_array($result);
-    $_SESSION['jsname']=$row['name'];
-    $_SESSION['jsid']=$row['joid'];
-}
-else
-{
-    header('location:../login.php?msg=please_login');
-}
-?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -24,19 +6,13 @@ else
 <meta charset="utf-8">
  <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Profile - <?php echo $row['name']; ?></title>
-<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
-    <link href="../css/main.css" rel="stylesheet">
-    <link href="../css/jobseeker.css" rel="stylesheet">
-</head>
-
-   
-<body>
- <script type="text/javascript">
+    <script type="text/javascript">
         function advsearch() {
             var comp=document.getElementById("company").value;
             var location=document.getElementById("location").value;
@@ -62,6 +38,9 @@ else
             xmlhttp.send();
         }
     </script>
+</head>
+<body>
+
 <div id="nav">
     <nav class="navbar">
         <div class="navbar" id="insidenav">
@@ -221,7 +200,7 @@ else
             echo " <th> Company</th> <th>Job Title</th> <th>Job Description</th>  <th>Date of Posting</th> <th colspan='3''>Actions</th>";
   */
             while ($result2 = mysqli_fetch_array($q)) {
-                $query2 = mysqli_query($db1, "select * from employer where emid = '$result2[jobid]'");
+                $query2 = mysqli_query($db1, "select * from employer where eid = '$result2[eid]'");
                 $r2 = mysqli_fetch_array($query2);
 
                /* echo " <tr> ";
@@ -233,7 +212,7 @@ else
                 echo "</tr>";
                 */
                echo "<h3> <a style='color: green;'  href='view_jobs.php?jid=" . $result2['jobid'] . "'>".$result2['title']."</a></h3>"; 
-               echo "<h4> Employer: <a href='view_emp.php?id=".$r2['emid']."'>".$r2['ename']."</a></h4>";
+               echo "<h4> Employer: <a href='view_emp.php?id=".$r2['eid']."'>".$r2['ename']."</a></h4>";
                echo "<p>". substr($result2['jobdesc'],0,120) ." .......</p>";
                echo "<h4>Job Posted on: " . $result2['postdate'] ."</h4>";
                echo "<hr>";
@@ -251,7 +230,7 @@ else
     <div id="resume" class="tab-pane fade">
         <div>
     <form action="../upload.php?type=file" enctype="multipart/form-data" method="post">
-       <?php if($row['resume']==""){
+       <?php if($row['Resume']==""){
     echo "<div class='alert alert-danger alert-dismissible' role='alert'>
             <button type='button' class='close'  data-dismiss='alert' aria-label='Close'><span
                     aria-hidden='true'>&times;</span></button>
@@ -270,8 +249,8 @@ else
         </div>
     </form>
         <div class="page-header"></div>
-        <?php if($row['resume']!="") {
-                echo "<a href = '../uploads/resume/".$row['resume']."' > Download Your Current Resume File </a >";
+        <?php if($row['Resume']!="") {
+                echo "<a href = '../uploads/resume/".$row['Resume']."' > Download Your Current Resume File </a >";
          }?>
 
         <br>
@@ -326,11 +305,12 @@ else
 
 </div> <!-- main content div -->
 
-
-	<script src="../js/jquery-1.12.0.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="search.js"></script>
 </body>
-	
+<link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.min.css">
+<link href="../css/main.css" rel="stylesheet">
+<link href="../css/jobseeker.css" rel="stylesheet">
+<script src="search.js"></script>
+<script src="../js/jquery-1.12.0.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 
 </html>
