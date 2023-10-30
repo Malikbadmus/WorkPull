@@ -1,23 +1,59 @@
 # Online Job Portal Project
-Online Job Portal project is web application built using PHP, MySQL as backend and HTML JavaScript &amp; Bootstrap as Frontend technologies. Note that this software is developed as an academic project. <br/>
-<b>A newer version (Work in progress) written using Express, GraphQL and Mongo can be obtained here: https://github.com/Sreelal-c/JobBoard-Backend</b>
+WorkPull Job Portal project is web application built using PHP, MySQL as backend and HTML JavaScript &amp; Bootstrap as Frontend technologies. Note that this software is developed as an academic project. <br/>
 
-<h3>Author:</h3> 
-Sreelal C
+## Features
 
-<h2> License </h2>
-Online-Job-Portal - A web application built on PHP HTML & javascript</br>
-Copyright (C) 2016  Sreelal C
+- Job search and filters: Advanced search with filters like location, industry, job type, and keywords..
+- User registration and profiles: User account creation for job seekers and employers.
+- Job posting and application: Employers can post job openings with details about the position, requirements, and application instructions.
+- User-friendly Interface: Intuitive and easy-to-use interface.
 
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+## Installation
+
+To run WorkPull locally, follow these steps:
+
+1. Clone the repository:
+https://github.com/Malikbadmus/WorkPull.git
+
+2. Install the necessary dependencies:
+
+3. Configure the database connection in the `config.php` file.
+4. Start the development server:
+
+5. Access the application at: `http://localhost:`
+
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to LoanMax, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch:
+3. Make your changes and commit them:
+4. Push to the branch:
+5. Open a pull request.
+
+Please ensure that your code follows the project's coding guidelines and includes appropriate tests.
+
+## License
+
+WorkPull is released under the [MIT License](LICENSE).
+
+## Contact
+
+If you have any questions or suggestions, feel free to contact us at malik.badmus@icloud.com
+
+
+
+
+
+
+
+
+
+<h2>Author:</h2> 
+Malik Badmus
+Fawaz Azeez
+
